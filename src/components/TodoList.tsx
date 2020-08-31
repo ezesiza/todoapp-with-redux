@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import Todo from "./Todo";
 import { getTodosByVisibilityFilter } from "../redux/selectors";
 
-
 export type Props= {
   todos: [
      { [key: string]: number },

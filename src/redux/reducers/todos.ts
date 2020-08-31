@@ -34,10 +34,9 @@ export default function (state = initialState, action) {
         content:action.payload.content
       }
 
-      // console.log('This is the new to update', newTodoUpdate)
       return {
         ...state,
-        newTodoUpdate
+      newTodo:[newTodoUpdate, ...currentTodoUpdate.slice(0, indexToUpdate), ...currentTodoUpdate.slice(indexToUpdate+1),]
       };
     }
 
@@ -59,7 +58,4 @@ export default function (state = initialState, action) {
   }
 }
 
-/*  ...state.allIds.map(s =>
-          (s.id === action.payload.id)
-         ?
-          Object.assign({}, s, action.payload) : s )*/
+

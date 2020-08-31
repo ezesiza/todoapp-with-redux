@@ -18,6 +18,18 @@ export const addTodo=(content:object): TodoActionTypes =>{
   };
 }
 
+export const delayAdd=(content:object):any=>{
+
+return function (dispatch) {
+  setTimeout(() => {
+    dispatch({ type: 'ADD_TODO', payload:{
+      id:++nextTodoId,
+      content
+    } })
+  }, 5000);
+}
+}
+
 export const toggleTodo = (id:string) => {
   return {
     type: TOGGLE_TODO,

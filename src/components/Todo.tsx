@@ -1,23 +1,20 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, useEffect, createRef } from "react";
 import { connect } from "react-redux";
-import cx from "classnames";
 import { toggleTodo, editTodo } from "../redux/actions";
 import { ListGroup, ListGroupItem, Button } from 'reactstrap';
+import store from './../redux/store'
 
 interface InputData {
   content: string;
   id?:number
- 
 }
 
 
 const Todo= ({ todo, toggleTodo, editTodo }) => {
-  const [input, setInput] = useState(" ");
-  
+ 
   const handleEdit = (e: InputData)=>{
-     setInput(e.content);
-    const eze = editTodo(e.id, e.content);
-    
+    const stor = store.getState().todos.allIds.find(id=>(id===e.id));
+    editTodo(e.id, e.content);
   }
 
 return (

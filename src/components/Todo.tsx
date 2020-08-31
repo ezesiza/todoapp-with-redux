@@ -17,7 +17,7 @@ const Todo= ({ todo, toggleTodo, editTodo }) => {
   const handleEdit = (e: InputData)=>{
      setInput(e.content);
     const eze = editTodo(e.id, e.content);
-    console.log(eze);
+    
   }
 
 return (
